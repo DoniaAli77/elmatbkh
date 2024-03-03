@@ -8,6 +8,36 @@ void main() {
   runApp(MyApp());
 }
 
+
+final GoRouter router = GoRouter(routes: [
+  GoRoute(path: '/', builder: (context, state) => CategoryGrid()),
+  GoRoute(
+      name: 'kitchen',
+      path: '/kitchenRoute',
+      builder: (context, state) {
+        return KitchenScreen(cat: state.extra as Category);
+      })
+]);
+
+class MyApp extends StatelessWidget {
+  MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.amberAccent),
+          useMaterial3: true,
+        ),
+        routerConfig: router);
+  }
+}
+
+
+
+
 // class MyApp extends StatelessWidget {
 //    MyApp({super.key});
 
@@ -47,28 +77,3 @@ void main() {
 //     );
 //   }
 // }
-final GoRouter router = GoRouter(routes: [
-  GoRoute(path: '/', builder: (context, state) => CategoryGrid()),
-  GoRoute(
-      name: 'kitchen',
-      path: '/kitchenRoute',
-      builder: (context, state) {
-        return KitchenScreen(cat: state.extra as Category);
-      })
-]);
-
-class MyApp extends StatelessWidget {
-  MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp.router(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.amberAccent),
-          useMaterial3: true,
-        ),
-        routerConfig: router);
-  }
-}

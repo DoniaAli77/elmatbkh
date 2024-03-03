@@ -4,14 +4,14 @@ import 'package:go_router/go_router.dart';
 import 'models/category.dart';
 
 class CategoryCard extends StatelessWidget {
+  //Go_router
   final Category cat;
-
   CategoryCard({required this.cat});
 
-  navigateToKitchenPage(BuildContext myContext) {
-    Navigator.of(myContext)
-        .pushNamed('/kitchenRoute', arguments: {'category': cat});
-  }
+  // navigateToKitchenPage(BuildContext myContext) {
+  //   Navigator.of(myContext)
+  //       .pushNamed('/kitchenRoute', arguments: {'category': cat});
+  // }
   navigateToKitchenPageGorouter(BuildContext myContext) {
     myContext.goNamed('kitchen',extra:cat);
   }
