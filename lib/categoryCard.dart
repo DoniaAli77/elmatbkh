@@ -8,13 +8,17 @@ class CategoryCard extends StatelessWidget {
   final Category cat;
   CategoryCard({required this.cat});
 
+  //Go_router
+  navigateToKitchenPageGorouter(BuildContext myContext) {
+    myContext.goNamed('kitchen',extra:cat);
+  }
+
+
   // navigateToKitchenPage(BuildContext myContext) {
   //   Navigator.of(myContext)
   //       .pushNamed('/kitchenRoute', arguments: {'category': cat});
   // }
-  navigateToKitchenPageGorouter(BuildContext myContext) {
-    myContext.goNamed('kitchen',extra:cat);
-  }
+  
 
   @override
   Widget build(BuildContext context) {
