@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'models/category.dart';
 
@@ -11,11 +12,14 @@ class CategoryCard extends StatelessWidget {
     Navigator.of(myContext)
         .pushNamed('/kitchenRoute', arguments: {'category': cat});
   }
+  navigateToKitchenPageGorouter(BuildContext myContext) {
+    myContext.goNamed('kitchen',extra:cat);
+  }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => navigateToKitchenPage(context),
+      onTap: () => navigateToKitchenPageGorouter(context),
       child: Container(
         child: Text(
           cat.title,

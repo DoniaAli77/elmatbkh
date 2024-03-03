@@ -5,13 +5,21 @@ import 'recipeCard.dart';
 import 'recipesList.dart';
 
 class KitchenScreen extends StatelessWidget {
+  //Go_router
+  final Category? cat;
+  KitchenScreen({required this.cat });
+
   @override
   Widget build(BuildContext context) {
-    // NEW PARTS
-    final routeArgs =
-        ModalRoute.of(context)!.settings.arguments as Map<String, Category>;
 
-    final extractedCategory = routeArgs['category'];
+    // NEW PARTS
+    // final routeArgs =
+    //     ModalRoute.of(context)!.settings.arguments as Map<String, Category>;
+
+    // final extractedCategory = routeArgs['category'];
+
+    //Go_router
+    final extractedCategory = cat;
 
     final recipesInThatCategory = recipesList.where((element) {
       return element.categoryId.contains(extractedCategory!.id);
