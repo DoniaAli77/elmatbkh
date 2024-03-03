@@ -1,6 +1,7 @@
 import 'package:elmatbkh/CategoryGrid.dart';
 import 'package:elmatbkh/FavoriteScreen.dart';
 import 'package:elmatbkh/categoryCard.dart';
+import 'package:elmatbkh/drawer.dart';
 import 'package:flutter/material.dart';
 
 class TabControllerScreen extends StatefulWidget {
@@ -11,23 +12,40 @@ class TabControllerScreen extends StatefulWidget {
 }
 
 class _TabControllerScreenState extends State<TabControllerScreen> {
+  final List<Widget> myPages = [CategoryGrid(), FavoriteScreen()]; 
+ 
+  var selectedTabIndex = 0; 
+ 
+  void switchPage(int index) { 
+    setState(() { 
+      selectedTabIndex = index; 
+    }); 
+  } 
+
   @override
   Widget build(BuildContext context) {
-    return  DefaultTabController(length: 2, child: Scaffold(
-      appBar: AppBar(
-        title: Text('El Matbkh'),
-        backgroundColor: Colors.orangeAccent,
-        bottom: TabBar(tabs: [
-          Tab(
-            icon: Icon(Icons.fastfood_rounded)
-          ),
-          Tab(
-            icon: Icon(Icons.favorite_rounded)
-          )
-        ]),
-      ),
-      body: TabBarView(children: [CategoryGrid(),FavoriteScreen()]),
 
-    ));
-  }
-}
+return Scaffold( 
+        appBar: AppBar( 
+          title: Text('ElMatbakh'), 
+          backgroundColor: Colors.orange,
+        ), 
+        drawer: MainDrawer(),
+         
+        body: myPages[selectedTabIndex], 
+        bottomNavigationBar: BottomNavigationBar( 
+           
+          items: [ 
+            BottomNavigationBarItem( 
+              icon: Icon(Icons.fastfood_rounded), 
+              label: 'Categories'  
+            ), 
+            BottomNavigationBarItem( 
+              icon: Icon(Icons.favorite_rounded), 
+              label: 'Favorites' 
+            ) 
+          ], 
+          currentIndex: selectedTabIndex, 
+          onTap: switchPage, 
+        )); 
+}} 

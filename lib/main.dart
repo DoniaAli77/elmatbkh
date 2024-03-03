@@ -1,5 +1,6 @@
 import 'package:elmatbkh/CategoryGrid.dart';
 import 'package:elmatbkh/TabController_Screen.dart';
+import 'package:elmatbkh/settingsScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'kitchenScreen.dart';
@@ -12,6 +13,8 @@ void main() {
 
 final GoRouter router = GoRouter(routes: [
   GoRoute(path: '/', builder: (context, state) => TabControllerScreen()),
+    GoRoute(path: '/setting', builder: (context, state) => SettingsScreen()),
+
   GoRoute(
       name: 'kitchen',
       path: '/kitchenRoute',
