@@ -1,3 +1,4 @@
+import 'package:elmatbkh/BottomNavigationBar.dart';
 import 'package:elmatbkh/CategoryGrid.dart';
 import 'package:elmatbkh/TabController_Screen.dart';
 import 'package:elmatbkh/settingsScreen.dart';
@@ -10,11 +11,9 @@ void main() {
   runApp(MyApp());
 }
 
-
 final GoRouter router = GoRouter(routes: [
-  GoRoute(path: '/', builder: (context, state) => TabControllerScreen()),
-    GoRoute(path: '/setting', builder: (context, state) => SettingsScreen()),
-
+  GoRoute(path: '/', builder: (context, state) => BottomNavigationBarPage()),//----bottom Navigationbar Page or tabtcontroller
+  GoRoute(path: '/setting', builder: (context, state) => SettingsScreen()),
   GoRoute(
       name: 'kitchen',
       path: '/kitchenRoute',

@@ -15,6 +15,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     prefs = await SharedPreferences.getInstance();
     setState(() {
       vegeterianSwitch = prefs.getBool('vgt') ?? false;
+      print(veganSwitch);
       veganSwitch = prefs.getBool('veg') ?? false;
     });
   }
@@ -42,6 +43,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 value: vegeterianSwitch,
                 onChanged: (val) {
                   setState(() {
+                    print('hi');
+                    print(val);
                     vegeterianSwitch = val;
                     updateVGTinPref(val);
                   });
