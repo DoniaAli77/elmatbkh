@@ -1,15 +1,17 @@
 import 'package:elmatbkh/CategoryGrid.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'kitchenScreen.dart';
 import 'models/category.dart';
+import 'package:elmatbkh/kitchenScreen.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 
-final GoRouter router = GoRouter(routes: [
+final GoRouter router = GoRouter(
+  
+routes: [
   GoRoute(path: '/', builder: (context, state) => CategoryGrid()),
   GoRoute(
       name: 'kitchen',
