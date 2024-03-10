@@ -13,7 +13,7 @@ class MainDrawer extends StatelessWidget {
             padding: EdgeInsets.all(20),
             alignment: Alignment.centerLeft,
             color: Colors.orangeAccent,
-            child: Text(
+            child: const Text(
               'El Matbakh',
               style: TextStyle(
                   fontWeight: FontWeight.w500,
@@ -21,23 +21,23 @@ class MainDrawer extends StatelessWidget {
                   color: Colors.white),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           ListTile(
-            leading: Icon(Icons.fastfood_rounded),
-            title: Text("Aklat"),
+            leading: const Icon(Icons.fastfood_rounded),
+            title: const Text("Aklat"),
             onTap: () {
               // Navigator.of(context).pushNamed('/');
-              context.go('/');
+              context.push('/'); // push instead of go to allow back arrow to be displayed
             },
           ),
           ListTile(
-            leading: Icon(Icons.settings),
-            title: Text("Settings"),
+            leading: const Icon(Icons.settings),
+            title: const Text("Settings"),
             onTap: () {
               // Navigator.of(context).pushNamed('/settingsRoute');
-              context.go('/setting');
+              context.push('/setting');// push instead of go to allow back arrow to be displayed
             },
           ),
         ],

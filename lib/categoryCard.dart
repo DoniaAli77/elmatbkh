@@ -10,7 +10,7 @@ class CategoryCard extends StatelessWidget {
 
   //Go_router
   navigateToKitchenPageGorouter(BuildContext myContext) {
-    myContext.goNamed('kitchen',extra:cat);
+    myContext.pushNamed('kitchen',extra:cat); // pushnamed instead of gonamed since back arrow disappeared
   }
 
 
